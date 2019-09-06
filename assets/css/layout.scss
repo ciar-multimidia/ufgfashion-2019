@@ -28,8 +28,8 @@ body, html {overflow-x: hidden;}
 body {
 	font-weight: normal;
 	font-style: normal;
-	font-size: 17px;
-	line-height: 1.7;
+	font-size: 20px;
+	line-height: 1.9;
 	color: $preto;
 	min-height: 100vh;
 	font-family: $fonte-padrao;
@@ -41,20 +41,114 @@ body {
 #cabecalho {
 	width: 100%;
 	position: relative;
-	background: $cinza;
 	min-height: 500px;
-	padding: 2em;
+	@include imagemfull(cover,center,center);
+
+	&:before {
+		content: ""; width: calc(100% - 4em); height: calc(100% - 4em);
+		border: 2px solid $preto;
+		border-bottom: 0; margin: 2em;
+		position: absolute;
+	}
+
+	svg.grafismo {
+		width: 400px;
+		position: absolute;
+		top: 2em;
+		right: 4em;
+		@include transform(translateY(-54%));
+		opacity: 0.4;
+
+		path {fill: $preto}
+	}
 
 	.container {
-		width: 100%; max-width: 100%;
-		border: 2px solid $preto;
-		border-bottom: 0;
-		padding: 2em;
+		padding: 4em 0;
 		min-height: calc(500px - 4em);
+		width: calc(100% - 8em);
+
+		svg { 
+			width: 300px; 
+
+			path {fill: $preto}
+		}
+
+		nav {
+			margin-top: 2em;
+			font-weight: bold;
+			font-family: $fonte-titulos;
+			text-transform: uppercase;
+
+			ul {
+				display: inline-block;
+				margin: 0;
+
+				li {
+					margin: .5em 0;
+					@include transition(padding 0.2s ease-in-out);
+
+					&:hover { padding-left: 0.5em }
+				}
+			}
+		}
+	}
+
+	&.claro {
+		color: white;
+		&:before {border-color: white;}
+
+		svg.grafismo path,
+		.container svg path {fill: white;}
 	}
 
 	@media (min-width: $tablet) {
 		min-height: 50vh;
 		.container {min-height: 50vh;}
+	}
+}
+
+
+#projeto {
+	width: 100%;
+	padding-top: 4em; padding-bottom: 4em;
+	@include flex(space-between);
+	@include align-items(center);
+
+	figure {
+		width: 45%; position: relative;
+
+		img {width: 100%;}
+		svg {position: absolute; bottom: -.1em; left: 0}
+	}
+
+	article {
+		width: 50%;
+	}
+}
+
+
+
+#exposicao {
+	padding-bottom: 4em;
+
+	header {
+		width: 100%;
+		padding: 2em 0;
+		position: relative;
+
+		& > * {position: relative;}
+
+		.fundo {
+			position: absolute; width: 100vw; height: 100%; 
+			top: 0; left: 50%;
+			@include transform(translateX(-50%));
+			@include imagemfull(cover,center,center);
+		}
+
+		.wrap {
+			max-width: 50%;
+			padding: 2em;
+			background: white;
+		}
 	}
 }

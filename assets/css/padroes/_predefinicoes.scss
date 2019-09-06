@@ -49,7 +49,7 @@ s, del {
 
 // paragrafos
 p, ul, ol, blockquote {
-	margin-bottom: 30px;
+	margin-bottom: 0.8em;
 }
 
 small {
@@ -66,7 +66,9 @@ h1, h2, h3, h4, h5 {
 	display: block;
 	color: inherit;
     font-weight: 900;
-    font-family: $fonte-padrao;
+    font-family: $fonte-titulos;
+    text-transform: uppercase;
+    margin-bottom: 0.8em;
 
 	a {
 		color: inherit !important;
