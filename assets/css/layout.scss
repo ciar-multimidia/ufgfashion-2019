@@ -1,0 +1,60 @@
+/////// CORES VARIAVEIS
+$preto: #212121;
+$cinza: #f9f9f9;
+
+/////// FAMILIAS VARIAVEIS
+$fonte-padrao: 'Montserrat',sans-serif;
+$fonte-titulos: 'Raleway',sans-serif;
+
+
+/////// MEDIA QUERIES e TAMANHOS
+$container: 1220px;
+$tablet: 990px;
+$smart-maior: 680px;
+$smart-menor: 500px;
+$celular: 380px;
+
+/////// IMPORTACOES
+@import "bourbon/bourbon";
+@import "padroes/reset";
+@import "padroes/mixins";
+@import "padroes/fontface";
+@import "padroes/predefinicoes";
+@import "padroes/fancybox";
+
+
+/////// LAYOUT
+body, html {overflow-x: hidden;}
+body {
+	font-weight: normal;
+	font-style: normal;
+	font-size: 17px;
+	line-height: 1.7;
+	color: $preto;
+	min-height: 100vh;
+	font-family: $fonte-padrao;
+	letter-spacing: 0.04em;
+	position: relative;
+}
+
+
+#cabecalho {
+	width: 100%;
+	position: relative;
+	background: $cinza;
+	min-height: 500px;
+	padding: 2em;
+
+	.container {
+		width: 100%; max-width: 100%;
+		border: 2px solid $preto;
+		border-bottom: 0;
+		padding: 2em;
+		min-height: calc(500px - 4em);
+	}
+
+	@media (min-width: $tablet) {
+		min-height: 50vh;
+		.container {min-height: 50vh;}
+	}
+}
