@@ -35,6 +35,26 @@ body {
 	font-family: $fonte-padrao;
 	letter-spacing: 0.04em;
 	position: relative;
+
+	@media (max-width: $smart-menor) {
+		font-size: 16px;
+		line-height: 1.65
+	}
+}
+
+a.botao {
+	background: #27AE60;
+	border-radius: 10px;
+	padding: 12px 34px;
+	border-radius: 8px;
+	color: white;
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: .9em;
+	display: inline-block;
+	// @include appearance(none);
+
+	&:hover {background: #239B56}
 }
 
 
@@ -115,7 +135,7 @@ body {
 }
 
 
-#projeto {
+#projeto, #programacao {
 	width: 100%;
 	padding-top: 4em; padding-bottom: 4em;
 	@include flex(space-between);
@@ -130,6 +150,10 @@ body {
 
 		img {width: 100%; visibility: hidden;}
 		svg {position: absolute; bottom: -.1em; left: 0}
+
+		@media (max-width: $tablet) {
+			background-position-x: 0;
+		}
 	}
 
 	article {
@@ -146,6 +170,39 @@ body {
 	}
 }
 
+
+#programacao {
+	& > h1 {
+		text-align: center; width: 100%; margin-bottom: 1em;
+	}
+	article {
+		width: calc(50% - 2em);
+
+		& > h2 {
+			span {
+				display: inline-block;
+
+				&:before {content: '/'; margin-right: 10px}
+			}
+		}
+
+		.hora {font-size: 1.2em; font-weight: bold; display: block;}
+		.local {font-size: .85em; display: block;}
+
+		p {
+			margin-bottom: 2em;
+			border-left: 3px solid $preto;
+			padding-left: 2em
+		}
+
+		a.botao {margin-top: 1em;}
+
+
+		@media (max-width: $smart-maior) {
+			width: 100%;
+		}
+	}
+}
 
 
 #exposicao {
@@ -252,7 +309,7 @@ body {
 
 	&:after {
 		content: ""; width: calc(100% - 4em); height: calc(100% - 4em);
-		border: 2px solid $preto;
+		border: 2px solid white;
 		border-top: 0; margin: 2em;
 		position: absolute;
 		z-index: 2; top: 0;

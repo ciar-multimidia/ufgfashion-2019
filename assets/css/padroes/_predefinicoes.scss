@@ -128,37 +128,6 @@ input, button, textarea {
 	outline: 0;
 }
 
-// caixas de texto e selects pra contato e afins
-input[type=text], input[type=tel], input[type=email], input[type=name], input[type=password], input[type=number], input[type=search], textarea {
-	width: 100%;
-	margin-top: 20px;
-	vertical-align:middle;
-	white-space:normal;
-	background:none;
-	display: block;
-	padding: 0 15px;
-	border: 1px solid black;
-	line-height: 40px;
-	font-size: inherit;
-	color: $preto;
-	background: white;
-    border-radius: 10px;
-    font-family: $fonte-padrao;
-	@include transition(background 0.3s ease-in-out);
-
-	&:focus {
-		outline:0;
-		background: white;
-	}
-}
-
-textarea {
-	height: 200px;
-	padding: 15px;
-	line-height: 1.65;
-	font-family: $fonte-padrao;
-}
-
 // definicoes
 .clear {
 	clear: both;
