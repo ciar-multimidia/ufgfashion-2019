@@ -1,0 +1,435 @@
+/////// CORES VARIAVEIS
+$preto: #212121;
+$cinza: #f9f9f9;
+
+/////// FAMILIAS VARIAVEIS
+$fonte-padrao: 'Montserrat',sans-serif;
+$fonte-titulos: 'Raleway',sans-serif;
+
+
+/////// MEDIA QUERIES e TAMANHOS
+$container: 1220px;
+$tablet: 990px;
+$smart-maior: 680px;
+$smart-menor: 500px;
+$celular: 380px;
+
+/////// IMPORTACOES
+@import "bourbon/bourbon";
+@import "padroes/reset";
+@import "padroes/mixins";
+@import "padroes/fontface";
+@import "padroes/predefinicoes";
+@import "padroes/fancybox";
+
+
+/////// LAYOUT
+body, html {overflow-x: hidden;}
+body {
+	font-weight: normal;
+	font-style: normal;
+	font-size: 20px;
+	line-height: 1.9;
+	color: $preto;
+	min-height: 100vh;
+	font-family: $fonte-padrao;
+	letter-spacing: 0.04em;
+	position: relative;
+
+	@media (max-width: $smart-menor) {
+		font-size: 16px;
+		line-height: 1.65
+	}
+}
+
+a.botao {
+	background: #27AE60;
+	transition: background 0.3s linear;
+	border-radius: 10px;
+	padding: 8px 23px;
+	border-radius: 6px;
+	color: white;
+	text-transform: uppercase;
+	text-decoration: none;
+	font-weight: bold;
+	font-size: .9em;
+	display: inline-block;
+	// @include appearance(none);
+
+	&:hover {background: #239B56}
+	&.yt{
+		background-color: transparent;
+		color: red;
+		border: 1px solid;
+		img{
+			vertical-align: middle;
+			display: inline-block;
+			height: 1.2em;
+			width: auto;
+			margin-right: .5em;
+		}
+
+
+	}
+}
+
+
+#cabecalho {
+	width: 100%;
+	position: relative;
+	@include imagemfull(cover,center,center);
+	background-attachment: fixed;
+
+	&:before {
+		content: ""; width: calc(100% - 4em); height: calc(100% - 4em);
+		border: 2px solid $preto;
+		border-bottom: 0; margin: 2em;
+		position: absolute;
+	}
+
+	svg.grafismo {
+		width: 400px;
+		position: absolute;
+		top: 2em;
+		right: 40%;
+		@include transform(translateY(-54%));
+		opacity: 0.4;
+
+		path {fill: $preto}
+	}
+
+	.container {
+		padding: 4em 0;
+		width: calc(100% - 8em);
+
+		h1 {margin: 0;}
+		h2 {font-family: $fonte-padrao; font-size: 1.3em}
+
+		svg { 
+			width: 300px; 
+
+			path {fill: $preto}
+		}
+
+		nav {
+			font-weight: bold;
+			font-family: $fonte-titulos;
+			text-transform: uppercase;
+
+			ul {
+				display: inline-block;
+				margin: 0;
+
+				li {
+					margin: .5em 0;
+					@include transition(padding 0.2s ease-in-out);
+
+					&:hover { padding-left: 0.5em }
+					a{
+						color: inherit;
+						text-decoration: none;
+					}
+				}
+			}
+		}
+	}
+
+	&.claro {
+		color: white;
+		&:before {border-color: white;}
+
+		svg.grafismo path,
+		.container svg path {fill: white;}
+	}
+
+	@media (min-width: $tablet) {
+		min-height: 80vh;
+		.container {min-height: 80vh;}
+	}
+
+	@media (max-width: $smart-menor) {
+		svg.grafismo {display: none;}
+	}
+}
+
+
+#projeto, #programacao {
+	width: 100%;
+	padding-top: 4em; padding-bottom: 4em;
+	@include flex(space-between);
+	// @include align-items(flex-start);
+
+	figure {
+		width: 45%; position: relative;
+	    background-size: contain;
+	    background-repeat: no-repeat;
+	    background-position-x: calc(50vw - #{$container / 2});
+		background-attachment: fixed;
+
+		img {width: 100%; visibility: hidden;}
+		svg {position: absolute; bottom: -.1em; left: 0}
+
+		@media (max-width: $tablet) {
+			background-position-x: 0;
+		}
+	}
+
+	article {
+		width: 50%;
+
+		&.full {
+			width: 100%;
+		}
+	}
+
+	@media (max-width: $smart-maior) {
+		figure {display: none;}
+		article {width: 100%;}
+	}
+}
+
+
+#programacao {
+	& > h1 {
+		text-align: center; width: 100%; margin-bottom: 1em;
+	}
+	article {
+		width: calc(50% - 2em);
+
+		& > h2 {
+			span {
+				display: inline-block;
+
+				&:before {content: '/'; margin-right: 10px}
+			}
+		}
+
+		.hora {font-size: 1.2em; font-weight: bold; display: block;}
+		.local {font-size: .85em; display: block;}
+
+		p {
+			margin-bottom: 2em;
+			border-left: 3px solid $preto;
+			padding-left: 2em
+		}
+
+		a.botao {margin-top: 1em;}
+
+
+		@media (max-width: $smart-maior) {
+			width: 100%;
+		}
+	}
+}
+
+
+#exposicao {
+	// padding-bottom: 4em;
+	position: relative;
+	padding: 2em 0;
+	margin-bottom: 10em;
+
+	.fundo {
+		position: absolute; 
+		width: 100vw; 
+		height: 100%; 
+		top: 0; 
+		left: calc(-50vw + 605px);
+		@include imagemfull(cover,center,center);
+		background-attachment: fixed;
+	    @media (max-width: $container) {
+	    	left: -10px;
+	    }
+	}
+
+	.wrap {
+		width: 50%;
+		padding: 2em;
+		background: white;
+		position: relative;
+		@media (max-width: $smart-maior) {
+			margin-left: 1em;	
+			margin-right: 1em;	
+			width: calc(100% - 2em);
+		}
+	}
+
+	header {
+		width: 100%;
+		padding: 2em 0;
+		position: relative;
+		margin-bottom: 2em;
+
+		& > * {position: relative;}
+	}
+
+
+	ul {
+		width: 100%; 
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 2em;
+
+		li {
+			position: relative;
+			cursor: pointer;
+
+			figure {
+				width: 100%; height: 0;
+				background: $cinza;
+				padding-bottom: 56%;
+				@include imagemfull(cover,center,center);
+				position: relative;
+				border: 3px solid $preto;
+
+				// &:before {
+				// 	border: 3px solid $preto; 
+				// 	bottom: calc(.8em - 1px); right: calc(.8em - 1px);
+				// 	border-left: 0; border-top: 0;
+				// 	width: calc(100% - 1.6em); height: calc(100% - 1.6em);
+				// 	content: ""; position: absolute;
+				// }
+
+				// &:after {
+				// 	top: -1px; left: -1px; content: ""; 
+				// 	@include imagemfull(contain,center,center);
+				// 	background-image: url('../media/fatia.svg');
+				// 	width: 100px; height: 52px; position: absolute;
+				// 	@include transform(scale(-1));
+				// }
+			}
+
+			// &:nth-of-type(3n-2) { margin-left: 0; }
+
+			h2 {font-size: 1.1em; margin-bottom: 0; text-transform: capitalize;}
+
+			&:hover {
+				h2 {text-decoration: underline;}
+			}
+		}
+
+
+		@media (max-width: $tablet) {
+			grid-template-columns: repeat(2, 1fr);
+			padding: 0 1em;
+		}
+
+		@media (max-width: $smart-maior) {
+			display: block;
+			li{
+				max-width: 100%;
+				width: 400px;
+				margin: 0 auto 2em;
+			}
+		}
+	}
+}
+
+
+
+
+#equipe {
+	width: 100%;
+	position: relative; overflow: hidden;
+	@include imagemfull(cover,top,center);
+	background-attachment: fixed;
+
+	&:before {
+		@include blocoabsoluto;
+		background: $preto;
+		opacity: .5; content: "";
+		z-index: 1;
+	}
+
+	&:after {
+		content: ""; width: calc(100% - 4em); height: calc(100% - 4em);
+		border: 2px solid white;
+		border-top: 0; margin: 2em;
+		position: absolute;
+		z-index: 2; top: 0;
+	}
+
+
+
+	.container {
+		position: relative;
+		z-index: 3;
+		padding: 4em 0em 2em 0em;
+		width: calc(100% - 8em);
+		color: white;
+		@include flex(space-between);
+
+
+		hgroup {
+			width: 100%; text-align: center;
+			margin-bottom: 2em; 
+			
+			h2 {font-size: .8em; margin-bottom: 0;}
+			h1 {margin-bottom: 0}
+		}
+
+		dl {
+			width: calc(50% - 2em);
+			margin: 0 0 2em;
+
+			dt {margin: 0; font-weight: bold;}
+			dd {
+				margin-bottom: 1em; font-size: 0.8em;
+				em {font-size: 0.8em;}
+			}
+
+			@media (max-width: $tablet) {
+				width: calc(50% - 1em);
+			}
+
+			@media (max-width: $smart-maior) {
+				width: 100%;
+			}
+
+		}
+	}
+}
+
+
+.modal {
+	max-width: 890px;
+
+	.foto-perfil{
+		width: 12em;
+		margin: 0 .5em .5em 0;
+		float: left;
+		img{
+			width: 100%;
+		}
+		@media (max-width: $smart-maior) {
+			float: none;
+			margin: 0;
+			margin-bottom: 1em;
+			// text-align: center;
+		}
+	}
+
+	h2{
+		font-size: 1.5em;
+		margin: 3em 0 .25em;
+	}
+
+	.galeria{
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: .5em;
+		@media (max-width: $smart-maior) {
+			display: block;
+			img{
+				margin-bottom: .5em;
+			}
+		}
+
+	}
+
+	img {
+		width: 100%;
+		box-shadow: 0px 1px 4px 0px rgb(0 0 0 / 30%);
+
+	}
+}

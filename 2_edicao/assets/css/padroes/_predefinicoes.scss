@@ -1,0 +1,145 @@
+/****************************************
+ ----------------------------------------
+ * AREA UTIL *
+ ----------------------------------------
+ ****************************************/
+
+.container {
+	width: 100%;
+    max-width: $container;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 10px;
+    position: relative;
+
+    @media (max-width: $container) {
+        max-width: 100%;
+    }
+}
+
+
+/****************************************
+ ----------------------------------------
+ * DEFINICOES PADRAO DE INICIO DE LAYOUT *
+ ----------------------------------------
+ ****************************************/
+// links
+a {
+	&, &:link, &:visited, &:active, &:focus {
+		outline: 0;
+		color: #004bf7;
+		text-decoration: underline;
+		&:hover{
+			cursor: pointer;
+		}
+	}
+}
+b, strong {
+	font-weight: bold;
+	color: inherit;
+}
+u {
+	text-decoration: underline;
+}
+i, em {
+	color: inherit;
+	font-style: italic;
+}
+s, del {
+	text-decoration: line-through;
+}
+
+// paragrafos
+p, ul, ol, blockquote {
+	margin-bottom: 0.8em;
+}
+
+small {
+	font-size: 80%;
+}
+
+center {
+	text-align: center;
+}
+
+// titulos
+h1, h2, h3, h4, h5 {
+	line-height: 1.3;
+	display: block;
+	color: inherit;
+    font-weight: 900;
+    font-family: $fonte-titulos;
+    text-transform: uppercase;
+    margin-bottom: 0.8em;
+
+	a {
+		color: inherit !important;
+		text-decoration:none !important;
+	}
+}
+
+h1 {
+    font-size: 1.9em; 
+    @media (max-width: $smart-maior) {font-size: 1.7em; }
+}
+
+h2 { 
+	font-size: 1.5em;
+	@media (max-width: $smart-maior) {font-size: 1.4em; }
+}
+h3 { 
+	font-size: 1.35em;
+	@media (max-width: $smart-maior) {font-size: 1.2em; }
+}
+h4 { 
+	font-size: 1.25em;
+	@media (max-width: $smart-maior) {font-size: 1.2em; }
+}
+h5 { 
+	font-size: 1.1em;
+	@media (max-width: $smart-maior) {font-size: 1em; }
+}
+h6 { font-size: 1em;}
+
+// quote
+blockquote {
+	font-size: 1em;
+	color: inherit;
+
+	p:last-of-type {margin-bottom: 0;}
+}
+
+
+// divisoria
+hr {
+	display: block;
+	width: 280px;
+	margin: 3em auto;
+    border: 0;
+    padding: 0;
+    height: 3px;
+    background: white;
+    position: relative;
+    overflow: inherit;
+}
+
+
+input, button, textarea {
+	@include appearance(none);
+	border: 0;
+	outline: 0;
+}
+
+// definicoes
+.clear {
+	clear: both;
+}
+
+.hidden {
+    display: none;
+}
+
+// alinhamentos
+.esq {text-align: left;}
+.dir {text-align: right;}
+
